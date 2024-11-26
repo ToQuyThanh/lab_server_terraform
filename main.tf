@@ -8,11 +8,11 @@ module "vpc" {
   public_subnet_cidr   = "10.0.1.0/24"
   aws_azs              = data.aws_availability_zones.available.names[0]
   enable_dns_hostnames = true
-  vpc_name             = "MyVPC"
+  vpc_name             = "LabVPC"
 
   default_tags = {
     Environment = "Dev"
-    Owner       = "ThanhToQuy"
+    Owner       = "ToQuyThanh"
   }
 
 }
@@ -34,6 +34,6 @@ module "ec2_instance" {
   instance_name = "Lab"
   default_tags = {
     Environment = "Dev"
-    Owner       = "User"
+    Owner       = "ToQuyThanh"
   }
 }
