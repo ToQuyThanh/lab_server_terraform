@@ -24,14 +24,21 @@ module "ssh_key" {
 }
 
 module "ec2_instance" {
-  depends_on      = [module.vpc]
-  source          = "./modules/ec2"
+  depends_on = [module.vpc]
+  source     = "./modules/ec2"
+
+  instance_name = "Lab"
+  instance_type = "c6g.xlarge"
+
+  root_block_device = {
+    volume_size = "16"
+    volume_type = "gp2"
+  }
+
   instance_key    = module.ssh_key.public_key_name
-  instance_type   = "t2.micro"
   security_groups = [module.vpc.sg_name]
   subnet_id       = module.vpc.public_subnet_id
 
-  instance_name = "Lab"
   default_tags = {
     Environment = "Dev"
     Owner       = "ToQuyThanh"

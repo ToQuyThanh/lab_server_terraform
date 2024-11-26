@@ -1,5 +1,5 @@
 # Create the VPC
-resource "aws_vpc" "app_vpc" {
+resource "aws_vpc" "lab_vpc" {
   cidr_block           = var.cidr_block
   enable_dns_hostnames = var.enable_dns_hostnames
 
@@ -13,7 +13,7 @@ resource "aws_vpc" "app_vpc" {
 
 # Create the public subnet
 resource "aws_subnet" "public_subnet" {
-  vpc_id                  = aws_vpc.app_vpc.id
+  vpc_id                  = aws_vpc.lab_vpc.id
   cidr_block              = var.public_subnet_cidr
   map_public_ip_on_launch = true
   availability_zone       = var.aws_azs
@@ -29,13 +29,13 @@ resource "aws_subnet" "public_subnet" {
 
 # Create the internet gateway
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.app_vpc.id
+  vpc_id = aws_vpc.lab_vpc.id
 }
 
 
 # Create the route table
 resource "aws_route_table" "public_rt" {
-  vpc_id = aws_vpc.app_vpc.id
+  vpc_id = aws_vpc.lab_vpc.id
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id

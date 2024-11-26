@@ -57,6 +57,13 @@ ssh-keygen -m PEM -t rsa -b 4096 -C "this@email.com" -f "D:\Thanh\SSH\lab1_key"
 
    Confirm the deployment when prompted by typing `yes`.
 
+7. **Cleanup**
+
+   To destroy the infrastructure and avoid unnecessary costs, use:
+   ```bash
+   terraform destroy
+   ```
+
 ---
 
 - Keep the private key (`lab1_key`) secure and do not share it.
@@ -64,10 +71,3 @@ ssh-keygen -m PEM -t rsa -b 4096 -C "this@email.com" -f "D:\Thanh\SSH\lab1_key"
 - Always follow best practices for managing AWS credentials and resources.
 
 ---
-
-## **Cleanup**
-
-To destroy the infrastructure and avoid unnecessary costs, use:
-```bash
-terraform destroy
-```

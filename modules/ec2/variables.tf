@@ -25,3 +25,12 @@ variable "default_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "root_block_device" {
+  description = "The root block device configuration"
+  type        = map(string)
+  default = {
+    volume_size = "8"
+    volume_type = "gp2"
+  }
+}
