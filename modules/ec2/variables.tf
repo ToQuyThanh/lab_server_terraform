@@ -1,3 +1,8 @@
+variable "ami" {
+  description = "AMI ID to use for the instance"
+  type        = string
+}
+
 variable "instance_type" {
   type        = string
   description = "Type for EC2 Instance"
