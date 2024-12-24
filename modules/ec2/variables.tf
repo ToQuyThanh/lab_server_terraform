@@ -39,3 +39,8 @@ variable "root_block_device" {
     volume_type = "gp2"
   }
 }
+
+variable "user_data_file" {
+  description = "Path to the user data file"
+  type        = string
+}

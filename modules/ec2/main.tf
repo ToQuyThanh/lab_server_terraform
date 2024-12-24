@@ -5,7 +5,7 @@ resource "aws_instance" "lab_instance" {
   key_name        = var.instance_key
   subnet_id       = var.subnet_id
   security_groups = var.security_groups
-  user_data       = file("${path.module}/setup.sh")
+  user_data       = file(var.user_data_file)
 
   root_block_device {
     volume_size = var.root_block_device["volume_size"]
